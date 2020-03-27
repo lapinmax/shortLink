@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ShortLinkController@index');
+Route::post('/', 'ShortLinkController@store')->name('generate.shorten.link.post');
+
+Route::get('{code}', 'ShortLinkController@shortenLink')->name('shorten.link');
